@@ -1,0 +1,15 @@
+extends layout 
+
+block content 
+    h1 #{title}
+
+    p #{toy_detail}
+    p #{toy_detail.url}
+
+    hr
+    a(href=toy_detail.url+"/delete") delete toy
+
+    br 
+    br 
+
+    a(href=toy_detail.url+"/update") update toy

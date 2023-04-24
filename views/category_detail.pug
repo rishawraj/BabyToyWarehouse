@@ -1,0 +1,24 @@
+extends layout 
+
+block content
+    h1 #{title}
+
+    p more information about this category
+    p list all toys here
+
+    each toy in toys 
+        p #{toy}
+        p Name: #{toy.name}
+        p Price: $#{toy.price}
+        p url: $#{toy.url}
+        a(href=toy.url) #{toy.name}
+    hr
+
+    a(href=category_detail.url + "/delete") delete category
+    br
+    br
+    a(href=category_detail.url + "/update") update category
+
+    br
+    br
+    a(href=category_detail.url+"/add") add a toy
