@@ -1,0 +1,15 @@
+extends layout 
+
+block content
+
+    h1 #{title}
+
+    //- p form 
+
+    form(action="", method="post") 
+
+        label(for="name") Category Name: 
+        input(type="text" name="name" required=true) 
+        br
+        button(type="submit") add
+

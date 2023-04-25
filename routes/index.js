@@ -33,8 +33,8 @@ router.post("/categories/:id/update", category_controlller.update_post);
 // todo delete categories
 
 // todo create toy inside a category.
-router.get("/categories/:id/add", category_controlller.add_toy_get);
-router.post("/categories/:id/add", category_controlller.add_toy_post);
+router.get("/categories/:id/add", toy_controller.add_toy_get);
+router.post("/categories/:id/add", toy_controller.add_toy_post);
 
 // todo update toy
 router.get("/toy/:id/update", toy_controller.update_get);

@@ -1,0 +1,12 @@
+extends layout 
+
+block content
+    h1 #{title}
+    p delete category
+    p remember deleting this categories will also delete all the toys inside this category
+    p #{category_id}
+
+    form(action="", method="post")  
+        input(type="hidden" name="name" value=category_id)
+
+        button(type="submit") delete

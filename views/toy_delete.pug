@@ -1,0 +1,12 @@
+extends layout 
+
+block content 
+    h1 #{title}
+
+    p delete toy
+    p #{toy_id}
+
+    form(action="", method="post")  
+        input(type="hidden", name="name" value=toy_id)
+
+        button(type="submit") delete
