@@ -1,0 +1,15 @@
+extends layout 
+
+block content 
+    h1 #{title}
+    p #{category_id}
+    p #{data}
+    p #{data.name}
+
+    form(action="", method="post")  
+        label(for="name") Name: 
+        input(type="text" name="name" required=true value=data.name)
+        input(type="hidden", name="category_id" value=category_id)
+        br
+        br
+        button(type="submit") update

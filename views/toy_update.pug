@@ -1,0 +1,26 @@
+extends layout 
+
+block content 
+    h1 #{title}
+    p #{data.name}
+    p #{data}
+
+
+    form(action="", method="post") 
+        label(for="name") Name: 
+        input(type="text" name="name" value=data.name)
+        br
+        label(for="price") Price: 
+        input(type="text" name="price" value=data.price)
+        br
+        label(for="dsecription")  Description: 
+        input(type="text" name="decription" value=data.dsecription)
+        br
+        label(for="stock") Stock : 
+        input(type="text" name="stock" value=data.stock)
+        input(type="hidden", name="toy_id" value=data._id)
+        br
+        br
+        button(type="submit") update
+
+

@@ -56,16 +56,6 @@ exports.add_toy_post = [
   },
 ];
 
-// todo update
-
-exports.update_get = (req, res) => {
-  res.send("update get toy");
-};
-
-exports.update_post = (req, res) => {
-  res.send("update post toy");
-};
-
 // todo delete
 exports.delete_get = (req, res) => {
   res.render("toy_delete", {
@@ -80,3 +70,42 @@ exports.delete_post = (req, res) => {
     .then((data) => res.redirect(data.url))
     .catch((err) => console.log(err));
 };
+
+// todo update
+
+exports.update_get = (req, res) => {
+  Toy.findById(req.params.id)
+    .then((data) => {
+      res.render("toy_update", {
+        title: "Update toy",
+        toy_id: req.params.id,
+        data,
+      });
+    })
+    .catch((err) => console.log(err));
+};
+
+exports.update_post = [
+  body("name").trim().optional().isLength({ min: 1 }).escape(),
+  body("price").trim().optional().escape(),
+  body("dsecription").trim().optional().escape(),
+  body("stock").trim().optional().escape(),
+
+  (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    const toy = {
+      name: req.body.name,
+      price: req.body.price,
+      dsecription: req.body.dsecription,
+      stock: req.body.stock,
+    };
+
+    Toy.findByIdAndUpdate(req.body.toy_id, toy, {})
+      .then(res.redirect("/toy/" + req.body.toy_id))
+      .catch((err) => console.log(err));
+  },
+];

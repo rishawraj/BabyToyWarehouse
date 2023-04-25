@@ -81,9 +81,23 @@ exports.delete_post = (req, res) => {
 };
 
 exports.update_get = (req, res) => {
-  res.send("update get");
+  Category.findById(req.params.id)
+    .then((data) => {
+      res.render("category_update", {
+        title: "Update Category",
+        category_id: req.params.id,
+        data: data,
+      });
+    })
+    .catch((err) => console.log(err));
 };
 
 exports.update_post = (req, res) => {
-  res.send("update_post");
+  Category.findByIdAndUpdate(
+    req.body.category_id,
+    {
+      name: req.body.name,
+    },
+    {}
+  ).then(res.redirect("/categories"));
 };

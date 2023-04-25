@@ -2,6 +2,8 @@ extends layout
 
 block content 
     h1 #{title}
+    p #{toy_detail.category}
+    a(href="/categories/"+toy_detail.category) back to category
 
     p #{toy_detail}
     p #{toy_detail.url}
