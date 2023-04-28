@@ -7,6 +7,7 @@ const ToySchema = new Schema({
   dsecription: { type: String, required: true },
   stock: { type: Number, maxLength: 500 },
   category: { type: Schema.Types.ObjectId, ref: "Category", required: true },
+  image: { type: String },
 });
 
 ToySchema.virtual("url").get(function () {

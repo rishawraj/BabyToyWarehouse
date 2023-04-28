@@ -6,7 +6,9 @@ block content
     p #{data}
 
 
-    form(action="", method="post") 
+    //- form(action="", method="post") 
+    form(action="", method="post" enctype="multipart/form-data") 
+
         label(for="name") Name: 
         input(type="text" name="name" value=data.name)
         br
@@ -21,6 +23,16 @@ block content
         input(type="hidden", name="toy_id" value=data._id)
         br
         br
+        label(for="toy-image") 
+        input(type="file", name="toy_image")
+        br
+        br
+        label(for="admin_password") admin password: 
+        input(type="text" name="admin_password")
+
+        br
+        br
+
         button(type="submit") update
 
 

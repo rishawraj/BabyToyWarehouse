@@ -5,7 +5,7 @@ block content
     p #{toy_detail.category}
     a(href="/categories/"+toy_detail.category) back to category
 
-    p #{toy_detail}
+    p toy_detail: #{toy_detail}
     p #{toy_detail.url}
 
     hr
@@ -13,5 +13,15 @@ block content
 
     br 
     br 
+    image(src="/images/"+toy_detail.image style="width:100px; height:100px")
+    //- image(src="/images/4ixbagf8ikua1.jpg" style="width:100px; height:100px")
+
+    //- a(href="public/images") ds
+    br
+    br
+
 
     a(href=toy_detail.url+"/update") update toy
+
+
+    //- images/4ixbagf8ikua1.jpg

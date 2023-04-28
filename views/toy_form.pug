@@ -6,7 +6,7 @@ block content
 
     p #{category_id}
 
-    form(action="", method="post") 
+    form(action="", method="post" enctype="multipart/form-data") 
         label(for="toy_name") Toy Name: 
         input(type="text", name="toy_name", required=true)
         br
@@ -21,10 +21,18 @@ block content
         br
         label(for="toy_stock") Toy Stock: 
         input(type="text" name="toy_stock" required=true)
-
+        br
+        br
+        label(for="toy-image") 
+        input(type="file", name="toy-image")
+        br
         input(type="hidden", name="toy_category", value=category_id)
+        br
+        br
+        label(for="admin_password") admin password:  
+        input(type="text" name="admin_password")
+        br
         br
 
         button(type="submit") add
 
-        
